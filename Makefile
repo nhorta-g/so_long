@@ -1,21 +1,41 @@
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror
-SRC =	src/so_long.c \
-		src/utils.c \
+SRC = 	src/so_long \
+		src/errors\
+		src/utils\
+		gnl/get_next_line\
 
-LIB = -L ./mlx -lmlx -lXext -lX11
+LIBFT = ./libft/libft.a
+LIBFT_PATH = ./libft
+
+CC = gcc
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -I. -fsanitize=address
+LINKS = -L./mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 all: $(NAME)
 
-$(NAME):
-	cd mlx/ && ./configure
-	gcc -g3 -fsanitize=address $(SRC) $(LIB) -o $(NAME)
+$(NAME): $(SRC:=.o) $(LIBFT)
+	$(CC) $(CFLAGS) $(SRC:=.o) $(LINKS) $(LIBFT) -o $(NAME)
+	echo "\033[1;36mSo_long is ready!"
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I /usr/include -Imlx_linux -O3 -c $< -o $@
+
+$(LIBFT):
+	make -C $(LIBFT_PATH)
 
 clean:
-	@rm -rf *.o
-	@echo "cleaning .o files"
+	$(RM) $(SRC:=.o)
+	#make clean -C mlx_linux
+	make clean -C libft
+	echo "\033[1;36mSo_long files removed!"
 
 fclean: clean
-	@rm -rf $(NAME)
+	$(RM) $(NAME)
+	$(RM) $(LIBFT)
+	make fclean -C libft
+	echo "\033[1;36mTotally clean!"
 
 re: fclean all
+
+.PHONY: all clean fclean re
