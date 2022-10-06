@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:00:50 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/09/13 12:25:46 by nuno             ###   ########.fr       */
+/*   Updated: 2022/09/27 17:45:04 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	main(int argc, char **argv)
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-/*
-	if (argc != 2)
-		end_and_error_msg("Must take ONE parameter as a map description file.");
-*/
+
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 640, 360, "Hello");
 	mlx_pixel_put(mlx, mlx_win, 640/2, 360/2, 0xFFFFFF);
