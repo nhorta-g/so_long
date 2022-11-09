@@ -22,5 +22,4 @@ int	main(int argc, char **argv)
 	draw_map(&game);
 	mlx_key_hook(game.mlx.mlx_win, key_hook, &game);
 	mlx_hook(game.mlx.mlx_win, 17, 1L << 2, exit_hook, &game);
-	mlx_loop(game.mlx.mlx);
 }
