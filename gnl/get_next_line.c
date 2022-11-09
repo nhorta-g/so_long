@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:07:41 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/09/20 15:56:56 by nuno             ###   ########.fr       */
+/*   Updated: 2022/10/08 17:39:56 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 
-size_t	ft_strlen_nl (const char *str)
+size_t	ft_strlen_nl(const char *str)
 {
 	size_t	i;
 

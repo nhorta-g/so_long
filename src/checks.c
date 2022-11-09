@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:37:53 by nuno              #+#    #+#             */
-/*   Updated: 2022/10/08 13:03:38 by nuno             ###   ########.fr       */
+/*   Updated: 2022/10/08 17:20:06 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,14 @@ void	check_characters2(char *all_chars)
 
 void	check_characters1(t_game *game, char *all_chars)
 {
+	printf("f_line_with: %d\n", game->first_line_width);
+	printf("      lines: %d\n", game->lines);
 	if ((ft_strchr(all_chars, 'P') == NULL)
 		|| (ft_strchr(all_chars, 'E') == NULL)
 		|| (ft_strchr(all_chars, 'C') == NULL))
 		error_msg_free_exit
 		("Error\nMissing one player, one collectible or one exit\n", all_chars);
-	if (game->first_line_width == game->lines)
+	if (game->first_line_width + 1 == game->lines)
 		error_msg_free_exit("Error\nMap is a square.\n", all_chars);
 	check_characters2(all_chars);
 }
