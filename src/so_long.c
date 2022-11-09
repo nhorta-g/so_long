@@ -20,6 +20,6 @@ int	main(int argc, char **argv)
 	init_map(&game, argv[1]);
 	init_struc(&game);
 	draw_map(&game);
-	mlx_key_hook(game.mlx.mlx_win, key_hook, &game);
+	mlx_hook(game.mlx.mlx_win, 02, (1L << 0), key_hook, &game);
 	mlx_hook(game.mlx.mlx_win, 17, 1L << 2, exit_hook, &game);
 }
